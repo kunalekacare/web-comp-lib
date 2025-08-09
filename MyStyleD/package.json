@@ -1,0 +1,33 @@
+{
+    "name": "@design-system/tokens",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "node build.js && mkdir -p dist && cp build/css/_variables.css dist/tokens.css",
+        "test": "npm run build"
+    },
+    "dependencies": {
+        "deepmerge": "^4.3.1",
+        "style-dictionary": "^5.0.1"
+    },
+    "description": "Design system tokens and build pipeline using Style Dictionary",
+    "main": "dist/tokens.css",
+    "style": "dist/tokens.css",
+    "files": [
+        "dist"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kunalkatre21/MyStyleD.git"
+    },
+    "keywords": ["design-tokens", "style-dictionary", "css-variables"],
+    "author": "",
+    "license": "MIT",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/kunalkatre21/MyStyleD/issues"
+    },
+    "homepage": "https://github.com/kunalkatre21/MyStyleD#readme",
+    "devDependencies": {
+        "handlebars": "^4.7.8"
+    }
+}

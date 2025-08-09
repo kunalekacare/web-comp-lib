@@ -1,0 +1,78 @@
+/* shadcn/ui utility classes */
+@layer utilities {
+  .bg-background {
+    background-color: var(--background);
+  }
+  
+  .bg-card {
+    background-color: var(--card);
+  }
+  
+  .bg-popover {
+    background-color: var(--popover);
+  }
+  
+  .bg-primary {
+    background-color: var(--primary);
+  }
+  
+  .bg-secondary {
+    background-color: var(--secondary);
+  }
+  
+  .bg-muted {
+    background-color: var(--muted);
+  }
+  
+  .bg-accent {
+    background-color: var(--accent);
+  }
+  
+  .bg-destructive {
+    background-color: var(--destructive);
+  }
+  
+  .text-foreground {
+    color: var(--foreground);
+  }
+  
+  .text-card-foreground {
+    color: var(--card-foreground);
+  }
+  
+  .text-popover-foreground {
+    color: var(--popover-foreground);
+  }
+  
+  .text-primary-foreground {
+    color: var(--primary-foreground);
+  }
+  
+  .text-secondary-foreground {
+    color: var(--secondary-foreground);
+  }
+  
+  .text-muted-foreground {
+    color: var(--muted-foreground);
+  }
+  
+  .text-accent-foreground {
+    color: var(--accent-foreground);
+  }
+  
+  .text-destructive-foreground {
+    color: var(--destructive-foreground);
+  }
+  
+  .border-border {
+    border-color: var(--border);
+  }
+  
+  .border-input {
+    border-color: var(--input);
+  }
+  
+  .ring-ring {
+    --tw-ring-color: var(--ring);
+  }
+}

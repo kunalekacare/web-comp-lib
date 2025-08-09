@@ -78,6 +78,9 @@ npm run build:ui
 
 # Build everything
 npm run build:all
+
+# Start webapp development server
+npm run dev:webapp
 ```
 
 ### Development Workflow
@@ -153,6 +156,7 @@ npm run build:all
 - `npm run build:ui` - Build UI components
 - `npm run build:all` - Build everything
 - `npm run dev:webapp` - Start web app development server
+- `npm run test` - Run tests across all packages
 
 ### Package Scripts
 - `npm run build` - Build package

@@ -1,0 +1,11 @@
+{
+  "contextFiles": [
+    "docs/README.md",
+    "docs/tokens.md",
+    "docs/components.md",
+    "docs/versioning-and-release.md",
+    "docs/contributing.md",
+    "docs/architecture.md"
+  ],
+  "description": "Design system repository with comprehensive documentation for tokens, components, and development guidelines. Always reference these docs when generating code to ensure consistency with established patterns and requirements."
+}

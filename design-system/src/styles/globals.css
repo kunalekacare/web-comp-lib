@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* 1) Design tokens CSS variables will be imported here */
+@import "../../../MyStyleD/build/css/_variables.css";
+
+/* 2) Define Tailwind v4 theme variables mapping to token namespaces */
+@theme {
+  /* Color tokens */
+  --color-primary-50: var(--color-primary-100);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-400);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-700);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-800);
+  --color-primary-950: var(--color-primary-800);
+  
+  /* Background and foreground */
+  --color-background: var(--color-neutral-100);
+  --color-foreground: var(--color-neutral-900);
+  --color-muted: var(--color-neutral-200);
+  --color-muted-foreground: var(--color-neutral-700);
+  
+  /* Card specific colors */
+  --color-card: var(--color-neutral-100);
+  --color-card-foreground: var(--color-neutral-900);
+  
+  /* Border and radius */
+  --color-border: var(--color-neutral-300);
+  --color-input: var(--color-neutral-300);
+  --radius-sm: var(--border-radius-s);
+  --radius-md: var(--border-radius-m);
+  --radius-lg: var(--border-radius-l);
+  --radius-xl: var(--border-radius-l);
+  
+  /* Spacing */
+  --spacing-1: var(--spacing-xs);
+  --spacing-2: var(--spacing-s);
+  --spacing-3: var(--spacing-m);
+  --spacing-4: var(--spacing-m);
+  --spacing-5: var(--spacing-l);
+  --spacing-6: var(--spacing-l);
+  --spacing-8: var(--spacing-xl);
+  --spacing-10: var(--spacing-xxl);
+  --spacing-12: var(--spacing-xxl);
+  --spacing-16: var(--spacing-xxl);
+  --spacing-20: var(--spacing-xxl);
+  --spacing-24: var(--spacing-xxl);
+  
+  /* Typography */
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* 3) Dark mode variant */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 4) Base styles and layer ordering */
+@layer base {
+  html, body {
+    font-family: var(--font-sans);
+    color: var(--color-foreground);
+    background: var(--color-background);
+  }
+  
+  :root {
+    /* Light mode defaults from tokens.css */
+  }
+  
+  @variant dark {
+    /* Dark mode overrides */
+    --color-background: var(--color-neutral-900);
+    --color-foreground: var(--color-neutral-100);
+    --color-muted: var(--color-neutral-800);
+    --color-muted-foreground: var(--color-neutral-400);
+    --color-card: var(--color-neutral-900);
+    --color-card-foreground: var(--color-neutral-100);
+    --color-border: var(--color-neutral-700);
+    --color-input: var(--color-neutral-700);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "contextFiles": [
+    "docs/README.md",
+    "docs/feature-workflow.md",
+    "docs/auth/login-spec.md",
+    "docs/architecture.md",
+    "docs/design-system-integration.md"
+  ],
+  "description": "Web application repository with comprehensive documentation for feature development, design system integration, and authentication workflows. Always reference these docs when generating code to ensure consistency with established patterns and requirements."
+}
