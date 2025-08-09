@@ -90,3 +90,16 @@ jspm_packages/
 # Temporary folders
 tmp/
 temp/
+
+# Nested project build outputs
+MyStyleD/dist/
+MyStyleD/build/
+design-system/dist/
+design-system/build/
+webapp/dist/
+webapp/build/
+
+# Nested project dependencies
+MyStyleD/node_modules/
+design-system/node_modules/
+webapp/node_modules/
