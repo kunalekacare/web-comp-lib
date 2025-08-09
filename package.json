@@ -1,0 +1,23 @@
+{
+  "name": "web-comp-lib",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Web component library with design system and style dictionary",
+  "workspaces": [
+    "MyStyleD",
+    "design-system",
+    "webapp"
+  ],
+  "scripts": {
+    "build:tokens": "npm run build -w @design-system/tokens",
+    "build:ui": "npm run build -w @design-system/ui",
+    "build:all": "npm run build:tokens && npm run build:ui",
+    "dev:webapp": "npm run dev -w webapp",
+    "test": "npm run test --workspaces"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  }
+}
