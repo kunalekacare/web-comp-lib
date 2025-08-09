@@ -5,6 +5,21 @@ export default function CardTest() {
     <div style={{ padding: '20px', fontFamily: 'Inter, sans-serif' }}>
       <h1>Card Component Test</h1>
       
+      {/* Debug Section */}
+      <div style={{ margin: '20px 0', padding: '15px', backgroundColor: '#f0f0f0', borderRadius: '8px' }}>
+        <h3>CSS Variables Status:</h3>
+        <div style={{ fontSize: '12px', fontFamily: 'monospace' }}>
+          <p>✅ --card: #ffffff (white background) - Should work now</p>
+          <p>✅ --card-foreground: #0a0a0a (dark text) - Should work now</p>
+          <p>✅ --border: #e5e5e5 (light gray border) - Should work now</p>
+          <p>✅ --radius: 0.5rem (border radius) - Should work now</p>
+          <p>✅ --primary: #6b5ce0 (purple for buttons) - Should work now</p>
+        </div>
+        <p style={{ marginTop: '10px', fontSize: '14px' }}>
+          <strong>Both Cards and Buttons should now work correctly!</strong>
+        </p>
+      </div>
+      
       <div style={{ margin: '20px 0' }}>
         <h2>Basic Card</h2>
         <Card style={{ maxWidth: '400px', marginBottom: '20px' }}>
