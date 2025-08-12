@@ -1,4 +1,51 @@
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle } from '@design-system/ui';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, BlurIn, AnimatedGrid, BentoGrid, BentoCard, Dock, DockIcon, AnimatedShinyText } from '@design-system/ui';
+import { CheckCircle, Lightbulb, Users, Shield, BarChart, Briefcase } from 'lucide-react';
+import { SiGmail, SiSlack, SiGoogledrive, SiZoom } from 'react-icons/si';
+import { motion } from 'framer-motion';
+
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+};
+
+const features = [
+  {
+    Icon: BarChart,
+    name: 'For HR professionals',
+    description: 'Use a single cloud system for your employees.',
+    className: 'col-span-3 lg:col-span-1',
+    background: (
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900 dark:to-blue-800" />
+    ),
+  },
+  {
+    Icon: Users,
+    name: 'For managers & leaders',
+    description: 'Get always up-to-date data and monitor performance.',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-green-100 to-green-200 dark:from-green-900 dark:to-green-800" />
+    ),
+  },
+  {
+    Icon: Briefcase,
+    name: 'For legal teams',
+    description: 'CoreShift helps legal teams by streamlining compliance.',
+    className: 'col-span-3 lg:col-span-2',
+    background: (
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-900 dark:to-purple-800" />
+    ),
+  },
+  {
+    Icon: BarChart,
+    name: 'All employee data at once',
+    description: 'Access balances, career history, projects and more.',
+    className: 'col-span-3 lg:col-span-1',
+    background: (
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-yellow-100 to-yellow-200 dark:from-yellow-900 dark:to-yellow-800" />
+    ),
+  },
+];
 
 export default function Home() {
   return (
@@ -26,142 +73,99 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="py-20 px-4">
+      {/* 00:00-00:01 Hero Section with AnimatedGrid + BlurIn */}
+      <section className="relative flex flex-col items-center justify-center min-h-[70vh] overflow-hidden px-4">
+        <AnimatedGrid className="absolute inset-0 h-full w-full -z-10" maxOpacity={0.5} fade={true} />
+
         <div className="container mx-auto text-center">
-          <h1 className="text-5xl font-bold text-foreground mb-6">
-            Web Component Library
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            A comprehensive design system built with shadcn/ui, design tokens, and Tailwind CSS v4. 
-            Create beautiful, accessible, and consistent user interfaces.
+          <BlurIn
+            text="All-in-one HR platform"
+            className="text-5xl font-bold text-foreground"
+          />
+          <p className="text-muted-foreground mt-2">
+            A modern, all-in-one HR platform designed to perfectly fit your business needs.
           </p>
-          <div className="flex gap-4 justify-center">
-            <Button size="lg" asChild>
-              <a href="/design-system">Explore Components</a>
-            </Button>
-            <Button size="lg" variant="outline" asChild>
-              <a href="https://github.com/your-org/web-comp-lib" target="_blank" rel="noopener noreferrer">
-                View on GitHub
-              </a>
-            </Button>
-          </div>
+
+          <motion.div
+            className="relative w-full max-w-xl h-64 flex items-center justify-center mt-8 mx-auto"
+            initial="hidden"
+            animate="visible"
+            transition={{ staggerChildren: 0.2 }}
+          >
+            <motion.div variants={itemVariants}>
+              <Card className="p-4 bg-primary text-primary-foreground rounded-2xl">
+                <CheckCircle size={48} />
+              </Card>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="absolute top-0 left-20">
+              <Card className="p-3"><Lightbulb /></Card>
+            </motion.div>
+            <motion.div variants={itemVariants} className="absolute bottom-10 left-32">
+              <Card className="p-3"><Users /></Card>
+            </motion.div>
+            <motion.div variants={itemVariants} className="absolute top-0 right-20">
+              <Card className="p-3"><Shield /></Card>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 px-4 bg-muted/50">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our Design System?</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <span className="text-2xl">🎨</span>
-                  Design Tokens
-                </CardTitle>
-                <CardDescription>
-                  Centralized design system with flexible token architecture
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm">
-                  <li>• Multi-brand support</li>
-                  <li>• Light & dark themes</li>
-                  <li>• Platform-specific outputs</li>
-                  <li>• CSS custom properties</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <span className="text-2xl">🧩</span>
-                  shadcn/ui Components
-                </CardTitle>
-                <CardDescription>
-                  High-quality React components built on Radix UI primitives
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm">
-                  <li>• Accessible by default</li>
-                  <li>• TypeScript support</li>
-                  <li>• Customizable variants</li>
-                  <li>• Tree-shakable</li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <span className="text-2xl">⚡</span>
-                  Modern Stack
-                </CardTitle>
-                <CardDescription>
-                  Built with the latest technologies for optimal performance
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2 text-sm">
-                  <li>• Tailwind CSS v4</li>
-                  <li>• React 19</li>
-                  <li>• Vite build tool</li>
-                  <li>• Style Dictionary</li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Start Section */}
+      {/* 00:02-00:04 Built for everyone - BentoGrid */}
       <section className="py-16 px-4">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12">Quick Start</h2>
-          <div className="max-w-4xl mx-auto">
-            <Card>
-              <CardHeader>
-                <CardTitle>Installation</CardTitle>
-                <CardDescription>
-                  Get started with our design system in just a few steps
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold mb-2">1. Install the package</h4>
-                    <pre className="bg-muted p-4 rounded-md text-sm overflow-x-auto">
-                      <code>npm install @design-system/ui</code>
-                    </pre>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-2">2. Import design tokens</h4>
-                    <pre className="bg-muted p-4 rounded-md text-sm overflow-x-auto">
-                      <code>{`import '@design-system/ui/dist/tokens.css';`}</code>
-                    </pre>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold mb-2">3. Use components</h4>
-                    <pre className="bg-muted p-4 rounded-md text-sm overflow-x-auto">
-                      <code>{`import { Button, Card } from '@design-system/ui';
+          <h2 className="text-3xl font-bold text-center mb-8">Built for everyone</h2>
+          <BentoGrid className="lg:grid-rows-3">
+            {features.map((feature) => (
+              <BentoCard key={feature.name} {...feature} />
+            ))}
+          </BentoGrid>
+        </div>
+      </section>
 
-function App() {
-  return (
-    <Card>
-      <Button>Hello World</Button>
-    </Card>
-  );
-}`}</code>
-                    </pre>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+      {/* 00:04-00:06 Integrations - Dock */}
+      <section className="py-16 px-4 bg-muted/50">
+        <div className="container mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-8">Integrate with your existing tools</h2>
+          <Dock direction="middle">
+            <DockIcon>
+              <SiGmail className="h-10 w-10" />
+            </DockIcon>
+            <DockIcon>
+              <SiSlack className="h-10 w-10" />
+            </DockIcon>
+            <DockIcon>
+              <SiGoogledrive className="h-10 w-10" />
+            </DockIcon>
+            <DockIcon>
+              <SiZoom className="h-10 w-10" />
+            </DockIcon>
+          </Dock>
+        </div>
+      </section>
+
+      {/* 00:06-00:09 Words of Appreciation - AnimatedShinyText header */}
+      <section className="py-16 px-4">
+        <div className="container mx-auto">
+          <div className="flex justify-center items-center mb-8">
+            <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1">
+              <span>✨ Words of Appreciation</span>
+            </AnimatedShinyText>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            {[1,2,3].map((i) => (
+              <Card key={i}>
+                <CardHeader>
+                  <CardTitle>Great experience</CardTitle>
+                  <CardDescription>Jane Doe, Director of People Ops</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-muted-foreground">
+                    CoreShift transformed our HR workflows. The animations and UX are delightful, and the data is always up-to-date.
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>

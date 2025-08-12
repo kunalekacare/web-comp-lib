@@ -6,6 +6,11 @@ export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
 
 // Export custom components
 export { LoginCard } from './components/login-card';
+export { BlurIn } from './components/magicui/blur-in';
+export { AnimatedGrid } from './components/magicui/animated-grid';
+export { BentoGrid, BentoCard } from './components/magicui/bento-grid';
+export { Dock, DockIcon } from './components/magicui/dock';
+export { AnimatedShinyText } from './components/magicui/animated-shiny-text';
 
 // Export types
 export type { ButtonProps } from './components/ui/button';
