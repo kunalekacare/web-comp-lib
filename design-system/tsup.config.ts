@@ -1,5 +1,7 @@
 import { defineConfig } from "tsup";
 import { resolve } from "path";
+import { copyFileSync, mkdirSync } from "fs";
+import { join } from "path";
 
 export default defineConfig({
   entry: ["src/index.ts"],
@@ -25,5 +27,25 @@ export default defineConfig({
     options.define = {
       'process.env.NODE_ENV': '"production"'
     };
+  },
+  // Copy globals.css to dist after build
+  onSuccess: () => {
+    try {
+      // Copy globals.css
+      copyFileSync(
+        join(__dirname, "src/styles/globals.css"),
+        join(__dirname, "dist/globals.css")
+      );
+      
+      // Copy variables.css from MyStyleD
+      copyFileSync(
+        join(__dirname, "../MyStyleD/build/css/_variables.css"),
+        join(__dirname, "dist/_variables.css")
+      );
+      
+      console.log("✅ Copied globals.css and _variables.css to dist");
+    } catch (error) {
+      console.error("❌ Failed to copy CSS files:", error);
+    }
   }
 });
