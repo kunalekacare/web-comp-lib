@@ -1,6 +1,6 @@
-import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, BlurIn, AnimatedGrid, BentoGrid, BentoCard, Dock, DockIcon, AnimatedShinyText } from '@design-system/ui';
+import { Button, Card, CardContent, CardDescription, CardHeader, CardTitle, BlurIn, AnimatedGrid, BentoGrid, BentoCard, Dock, DockIcon, AnimatedShinyText, ShineBorder, Marquee, usePrefersReducedMotion } from '@design-system/ui';
 import { CheckCircle, Lightbulb, Users, Shield, BarChart, Briefcase } from 'lucide-react';
-import { SiGmail, SiSlack, SiGoogledrive, SiZoom } from 'react-icons/si';
+import { SiGmail, SiSlack, SiGoogledrive, SiZoom, SiJirasoftware, SiAsana } from 'react-icons/si';
 import { motion } from 'framer-motion';
 
 const itemVariants = {
@@ -48,6 +48,8 @@ const features = [
 ];
 
 export default function Home() {
+  const prefersReduced = usePrefersReducedMotion();
+
   return (
     <div className="min-h-screen bg-background">
       {/* Navigation */}
@@ -75,7 +77,9 @@ export default function Home() {
 
       {/* 00:00-00:01 Hero Section with AnimatedGrid + BlurIn */}
       <section className="relative flex flex-col items-center justify-center min-h-[70vh] overflow-hidden px-4">
-        <AnimatedGrid className="absolute inset-0 h-full w-full -z-10" maxOpacity={0.5} fade={true} />
+        {!prefersReduced && (
+          <AnimatedGrid className="absolute inset-0 h-full w-full -z-10" maxOpacity={0.5} fade={true} />
+        )}
 
         <div className="container mx-auto text-center">
           <BlurIn
@@ -86,28 +90,39 @@ export default function Home() {
             A modern, all-in-one HR platform designed to perfectly fit your business needs.
           </p>
 
-          <motion.div
-            className="relative w-full max-w-xl h-64 flex items-center justify-center mt-8 mx-auto"
-            initial="hidden"
-            animate="visible"
-            transition={{ staggerChildren: 0.2 }}
-          >
-            <motion.div variants={itemVariants}>
-              <Card className="p-4 bg-primary text-primary-foreground rounded-2xl">
-                <CheckCircle size={48} />
-              </Card>
-            </motion.div>
+          {!prefersReduced && (
+            <motion.div
+              className="relative w-full max-w-xl h-64 flex items-center justify-center mt-8 mx-auto"
+              initial="hidden"
+              animate="visible"
+              transition={{ staggerChildren: 0.2 }}
+            >
+              <motion.div variants={itemVariants}>
+                <Card className="p-4 bg-primary text-primary-foreground rounded-2xl">
+                  <CheckCircle size={48} />
+                </Card>
+              </motion.div>
 
-            <motion.div variants={itemVariants} className="absolute top-0 left-20">
-              <Card className="p-3"><Lightbulb /></Card>
+              <motion.div variants={itemVariants} className="absolute top-0 left-20">
+                <Card className="p-3"><Lightbulb /></Card>
+              </motion.div>
+              <motion.div variants={itemVariants} className="absolute bottom-10 left-32">
+                <Card className="p-3"><Users /></Card>
+              </motion.div>
+              <motion.div variants={itemVariants} className="absolute top-0 right-20">
+                <Card className="p-3"><Shield /></Card>
+              </motion.div>
             </motion.div>
-            <motion.div variants={itemVariants} className="absolute bottom-10 left-32">
-              <Card className="p-3"><Users /></Card>
-            </motion.div>
-            <motion.div variants={itemVariants} className="absolute top-0 right-20">
-              <Card className="p-3"><Shield /></Card>
-            </motion.div>
-          </motion.div>
+          )}
+
+          {/* CTA with ShineBorder */}
+          <div className="mt-8">
+            <ShineBorder className="text-center" color={["#A07CFE", "#FE8A71", "#FFD700"]}>
+              <Button className="px-6 py-4 text-lg" asChild>
+                <a href="/design-system">Get Started for Free</a>
+              </Button>
+            </ShineBorder>
+          </div>
         </div>
       </section>
 
@@ -117,13 +132,13 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-8">Built for everyone</h2>
           <BentoGrid className="lg:grid-rows-3">
             {features.map((feature) => (
-              <BentoCard key={feature.name} {...feature} />
+              <BentoCard key={feature.name} {...feature} className={feature.className + ' transition-transform duration-300 ease-in-out hover:scale-105'} />
             ))}
           </BentoGrid>
         </div>
       </section>
 
-      {/* 00:04-00:06 Integrations - Dock */}
+      {/* 00:04-00:06 Integrations - Dock + Marquee */}
       <section className="py-16 px-4 bg-muted/50">
         <div className="container mx-auto">
           <h2 className="text-3xl font-bold text-center mb-8">Integrate with your existing tools</h2>
@@ -141,6 +156,17 @@ export default function Home() {
               <SiZoom className="h-10 w-10" />
             </DockIcon>
           </Dock>
+
+          {/* Modern alternative: marquee of logos */}
+          <div className="mt-10">
+            <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-lg py-8">
+              <Marquee pauseOnHover className="[--duration:20s]">
+                {[SiGmail, SiSlack, SiGoogledrive, SiZoom, SiJirasoftware, SiAsana].map((Icon, idx) => (
+                  <Icon key={idx} className="h-10 w-10" />
+                ))}
+              </Marquee>
+            </div>
+          </div>
         </div>
       </section>
 

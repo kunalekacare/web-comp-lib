@@ -11,6 +11,8 @@ export { AnimatedGrid } from './components/magicui/animated-grid';
 export { BentoGrid, BentoCard } from './components/magicui/bento-grid';
 export { Dock, DockIcon } from './components/magicui/dock';
 export { AnimatedShinyText } from './components/magicui/animated-shiny-text';
+export { ShineBorder } from './components/magicui/shine-border';
+export { Marquee } from './components/magicui/marquee';
 
 // Export types
 export type { ButtonProps } from './components/ui/button';
@@ -21,3 +23,4 @@ export { cn } from './lib/utils';
 // Export theme utilities
 export { useTheme } from './hooks/useTheme';
 export { setTheme, getCurrentTheme } from './utils/theme';
+export { usePrefersReducedMotion } from './hooks/usePrefersReducedMotion';
